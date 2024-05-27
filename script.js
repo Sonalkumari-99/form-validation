@@ -20,25 +20,6 @@ submitBtn.addEventListener('click', (e)=>{
     }
 });
 
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     // Retrieve the values from localStorage
-//     const storedName = localStorage.getItem('name');
-//     const storedEmail = localStorage.getItem('email');
-//     const storedPassword = localStorage.getItem('password');
-
-//     // Populate the input fields with the stored values
-//     if (storedName) {
-//         document.getElementById('name').value = storedName;
-//     }
-//     if (storedEmail) {
-//         document.getElementById('email').value = storedEmail;
-//     }
-//     if (storedPassword) {
-//         document.getElementById('password').value = storedPassword;
-//     }
-// });
-
-
 
 function validateName(){
     let name = document.getElementById('name').value;
