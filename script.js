@@ -1,0 +1,97 @@
+
+const submitBtn = document.getElementById('submitBtn');
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const passError = document.getElementById('passError');
+
+submitBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+
+    if(validateName() && validateEmail() && validatePassword()){
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        console.log("name : ",name);
+        console.log("email : ",email);
+        console.log("password : ",password);
+        alert("Form Submitted Successfully");
+    }
+});
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     // Retrieve the values from localStorage
+//     const storedName = localStorage.getItem('name');
+//     const storedEmail = localStorage.getItem('email');
+//     const storedPassword = localStorage.getItem('password');
+
+//     // Populate the input fields with the stored values
+//     if (storedName) {
+//         document.getElementById('name').value = storedName;
+//     }
+//     if (storedEmail) {
+//         document.getElementById('email').value = storedEmail;
+//     }
+//     if (storedPassword) {
+//         document.getElementById('password').value = storedPassword;
+//     }
+// });
+
+
+
+function validateName(){
+    let name = document.getElementById('name').value;
+
+    if(name.length == 0){
+        nameError.innerHTML = "Name is required";
+        nameError.previousElementSibling.classList.add('fa-xmark');
+        return false;
+    }
+
+    if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+        nameError.innerHTML = "Write full Name";
+        nameError.previousElementSibling.classList.add('fa-xmark');
+        return false;
+    }
+    nameError.innerHTML = "";
+    nameError.previousElementSibling.classList.add('fa-check');
+    return true;
+}
+
+function validateEmail(){
+    let email = document.getElementById('email').value;
+
+    if(email.length == 0){
+        emailError.innerHTML = "Email is required";
+        emailError.previousElementSibling.classList.add('fa-xmark');
+        return false;
+    }
+
+    if(!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+        emailError.innerHTML = "Enter Valid Email";
+        emailError.previousElementSibling.classList.add('fa-xmark');
+        return false;
+    }
+    emailError.innerHTML = "";
+    emailError.previousElementSibling.classList.add('fa-check');
+    return true;
+}
+function validatePassword(){
+    let password = document.getElementById('password').value;
+
+    if(password.length == 0){
+        passError.innerHTML = "Password is required";
+        passError.previousElementSibling.classList.add('fa-xmark');
+        return false;
+    }
+
+    if(!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/)){
+        passError.innerHTML = "Password should contain 1 Uppercase, 1 Lowecase, 1 Digit & 1 Alphabet";
+        passError.previousElementSibling.classList.add('fa-xmark');
+        return false;
+    }
+    passError.innerHTML = "";
+    passError.previousElementSibling.classList.add('fa-check');
+    return true;
+}
