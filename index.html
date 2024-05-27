@@ -16,11 +16,27 @@
                 <h1>Signup</h1>
             </header>
             <main class="signup-body">
-                <form action="#">
+                <form action="#" autocomplete="false">
                     <p>
-                        <label for="name">Full Name</label>
-                        <input type="text" placeholder="Type Name Here" id="name" />
+                        <label for="name">First  Name</label>
+                        <input type="text" placeholder="Type FirstName" id="name" />
                         <span id="nameError"></span>
+                    </p>
+                    <p>
+                        <label for="surname">Last Name</label>
+                        <input type="text" placeholder="Type LastName " id="Lastname" />
+                        <span id="lastnameerror"></span>
+                    </p>
+                    <p>
+                        <label for="date">Date of Birth</label>
+                        <input type="date"  id="dob" />
+                        <span id="doberror"></span>
+                    </p>
+                    <p>
+                        <label for="gender">Gender</label>
+                        <input type="radio" name="gender" id="gender1" value="male">Male
+                        <input type="radio" name="gender"  id="gender2" value="female">Female
+                        <span id="gendererror"></span>
                     </p>
                     <p>
                         <label for="email">Email</label>
@@ -28,9 +44,19 @@
                         <span id="emailError"></span>
                     </p>
                     <p>
+                        <label for="phone">Phone no.</label>
+                        <input type="number" placeholder="Enter 10 digit number" id="phonenumber" />
+                        <span id="numbererror"></span>
+                    </p>
+                    <p>
                         <label for="password">Password</label>
                         <input type="password" placeholder="at least 8 characters" id="password" />
                         <span id="passError"></span>
+                    </p>
+                    <p>
+                        <label for="password">Confirm Password</label>
+                        <input type="password" placeholder="Enter password again" id="confirmpassword" />
+                        <span id="confirmpasserror"></span>
                     </p>
                     <p>
                         <input type="submit" value="Create Account" id="submitBtn" />
