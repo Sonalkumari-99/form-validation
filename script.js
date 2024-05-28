@@ -1,15 +1,16 @@
-
+var selectedGender = null;
 const submitBtn = document.getElementById('submitBtn');
 const nameError = document.getElementById('nameError');
 const emailError = document.getElementById('emailError');
 const passError = document.getElementById('passError');
-const phoneError = document.getElementById('numbererror'); 
+const phoneError = document.getElementById('numbererror');
 const doberror = document.getElementById("doberror");
+const gendererror = document.getElementById("gendererror");
 
-submitBtn.addEventListener('click', (e)=>{
+submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    if(validateName() && validateEmail() && validatePassword()){
+    if (validateName() && validatelastname() && validatedob() && getGender() && validateEmail() && validatePhoneNumber() && validatePassword()) {
 
         const name = document.getElementById("name").value;
         const lastname = document.getElementById("Lastname").value;
@@ -18,138 +19,134 @@ submitBtn.addEventListener('click', (e)=>{
         const confirmpassword = document.getElementById("confirmpassword").value;
         const phonenumber = document.getElementById("phonenumber").value;
         const dob = document.getElementById("dob").value;
-        const gender = document.getElementById("gender");
-        
-        
+        const gender = selectedGender;
+        let finaldata = [{
+            "name" : name,
+            "lastname": lastname,
+            "email" : email,
+            "gender": gender,
+            "password": password,
+            "confirmpassword":confirmpassword,
+            "phonenumber": phonenumber,
+            "dob": dob
+        }]
 
-        console.log("Firstname : ",name);
-        console.log("Lastname : ",lastname);
-        console.log("Date of birth : ",dob);
-        console.log("gender is :",gender);
-        console.log("email : ",email);
-        console.log("phone number : ",phonenumber);
-        console.log("password : ",password);
-        console.log("confirm passowrd : ",confirmpassword);
+        //store data in local storage
+        localStorage.setItem("finaldata",JSON.stringify(finaldata));
+
+
+        // console.log("Firstname : ", name);
+        // console.log("Lastname : ", lastname);
+        // console.log("Date of birth : ", dob);
+        // console.log("gender is : ", gender);
+        // console.log("email : ", email);
+        // console.log("phone number : ", phonenumber);
+        // console.log("password : ", password);
+        // console.log("confirm passowrd : ", confirmpassword);
+        console.log(JSON.parse(localStorage.getItem("finaldata")));
         alert("Form Submitted Successfully");
     }
 });
 
 
-function validateName(){
+function validateName() {
     let name = document.getElementById('name').value;
 
-    if(name.length == ""){
+    if (name.length == "") {
         nameError.innerHTML = "Name is required";
         return false;
     }
 
-    if(name.length < 2){
+    if (name.length < 2) {
         nameError.innerHTML = "Write full Name";
         return false;
     }
     return true;
 }
 
-function validatelastname(){
-    let lastname = document.getElementById("lastname").value;
+function validatelastname() {
+    let lastname = document.getElementById("Lastname").value;
 
-    if(lastname.length == ""){
+    if (lastname.length == "") {
         lastnameerror.innerHTML = "last name is required";
         return false;
     }
     return true;
 }
 
-function validatedob(){
+function validatedob() {
     let dob = document.getElementById("dob");
-
+    // console.log(dob);
     doberror.innerHTML = "";
-    if (dob = ""){
+    if (dob.length = "") {
         doberror.innerHTML = "date of birth is required";
         return false;
     }
     return true;
 }
 
-function validateGender() {
-    let genderOptions = document.getElementsByName("gender");
-    let genderError = document.getElementById("genderError");
-
-    genderError.innerHTML = "";
-    let isSelected = false;
-
-    for (let gender of genderOptions) {
-        if (gender.checked) {
-            isSelected = true;
+function getGender() {
+    const genders = document.getElementsByName("gender");
+    
+    
+    for (var i = 0; i < genders.length; i++) {
+        if (genders[i].checked) {
+            selectedGender = genders[i].value;
             break;
         }
     }
-
-    if (!isSelected) {
-        genderError.innerHTML = "Please select your gender.";
+    if (!selectedGender) {
+        gendererror.innerHTML = "No gender selected";
         return false;
+    } else {
+        return true;
     }
-
-    return true;
 }
 
-function validateEmail(){
+
+function validateEmail() {
     let email = document.getElementById('email').value;
 
-    if(email.length == 0){
+    if (email.length == 0) {
         emailError.innerHTML = "Email is required";
-        emailError.previousElementSibling.classList.add('fa-xmark');
         return false;
     }
 
-    if(!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+    if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
         emailError.innerHTML = "Enter Valid Email";
-        emailError.previousElementSibling.classList.add('fa-xmark');
         return false;
     }
     emailError.innerHTML = "";
-    emailError.previousElementSibling.classList.add('fa-check');
     return true;
 }
 
 function validatePhoneNumber() {
     let phoneNumber = document.getElementById('phonenumber').value;
-    
 
-    
-    phoneError.innerHTML = "";
-    // phoneError.previousElementSibling.classList.remove('fa-xmark', 'fa-check'); 
-
-    
-    if (phoneNumber.trim() === "") {
+    if (phoneNumber === "") {
         phoneError.innerHTML = "Phone number is required";
-        // phoneError.previousElementSibling.classList.add('fa-xmark');
         return false;
     }
 
     // Validate phone number format (only digits, length 10)
-    if (phoneNumber.length == 10) {
+    if (phoneNumber.length != 10 && /^\d+$/.test(phoneNumber)) {
         phoneError.innerHTML = "Phone number should be 10 digits";
-        // phoneError.previousElementSibling.classList.add('fa-xmark');
         return false;
     }
-
-    // If validation passes
-    // phoneError.previousElementSibling.classList.add('fa-check');
     return true;
 }
 
 
-function validatePassword(){
+function validatePassword() {
     let password = document.getElementById('password').value;
     let confirmpassword = document.getElementById('confirmpassword').value;
 
-    if(password.length == ""){
+    if (password.length == "") {
         document.getElementById("passError").innerHTML = "please fill password"
         return false;
     }
 
-    if(!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/)){
+    if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/)) {
         passError.innerHTML = "Password should contain 1 Uppercase, 1 Lowecase, 1 Digit & 1 special character";
         passError.previousElementSibling.classList.add('fa-xmark');
         return false;
@@ -158,6 +155,6 @@ function validatePassword(){
         document.getElementById("confirmpasserror").innerHTML = "password are not same"
         return false;
     }
-    
+
     return true;
 }
