@@ -1,8 +1,10 @@
 var selectedGender = null;
 const submitBtn = document.getElementById('submitBtn');
 const nameError = document.getElementById('nameError');
+const lastnameerror = document.getElementById('lastnameerror');
 const emailError = document.getElementById('emailError');
 const passError = document.getElementById('passError');
+const confirmpasserror = document.getElementById('confirmpasserror');
 const phoneError = document.getElementById('numbererror');
 const doberror = document.getElementById("doberror");
 const gendererror = document.getElementById("gendererror");
@@ -33,18 +35,19 @@ submitBtn.addEventListener('click', (e) => {
 
         //store data in local storage
         localStorage.setItem("finaldata",JSON.stringify(finaldata));
-
-
-        // console.log("Firstname : ", name);
-        // console.log("Lastname : ", lastname);
-        // console.log("Date of birth : ", dob);
-        // console.log("gender is : ", gender);
-        // console.log("email : ", email);
-        // console.log("phone number : ", phonenumber);
-        // console.log("password : ", password);
-        // console.log("confirm passowrd : ", confirmpassword);
         console.log(JSON.parse(localStorage.getItem("finaldata")));
         alert("Form Submitted Successfully");
+
+
+        console.log("Firstname : ", name);
+        console.log("Lastname : ", lastname);
+        console.log("Date of birth : ", dob);
+        console.log("gender is : ", gender);
+        console.log("email : ", email);
+        console.log("phone number : ", phonenumber);
+        console.log("password : ", password);
+        console.log("confirm passowrd : ", confirmpassword);
+        clearForm();
     }
 });
 
@@ -77,7 +80,7 @@ function validatelastname() {
 function validatedob() {
     let dob = document.getElementById("dob");
     // console.log(dob);
-    doberror.innerHTML = "";
+    // doberror.innerHTML = "";
     if (dob.length = "") {
         doberror.innerHTML = "date of birth is required";
         return false;
@@ -129,7 +132,7 @@ function validatePhoneNumber() {
     }
 
     // Validate phone number format (only digits, length 10)
-    if (phoneNumber.length != 10 && /^\d+$/.test(phoneNumber)) {
+    if (phoneNumber.length != 10 ) {
         phoneError.innerHTML = "Phone number should be 10 digits";
         return false;
     }
@@ -157,4 +160,29 @@ function validatePassword() {
     }
 
     return true;
+}
+
+function clearForm() {
+    document.getElementById("name").value = "";
+    document.getElementById("Lastname").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("confirmpassword").value = "";
+    document.getElementById("phonenumber").value = "";
+    document.getElementById("dob").value = "";
+    selectedGender = null;
+
+    const genders = document.getElementsByName("gender");
+    for (var i = 0; i < genders.length; i++) {
+        genders[i].checked = false;
+    }
+
+    nameError.innerHTML = "";
+    lastnameerror.innerHTML = "";
+    emailError.innerHTML = "";
+    passError.innerHTML = "";
+    confirmpasserror.innerHTML = "";
+    phoneError.innerHTML = "";
+    doberror.innerHTML = "";
+    gendererror.innerHTML = "";
 }
