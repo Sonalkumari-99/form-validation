@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation in javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <header class="signup-header">
+                <h1>Signup</h1>
+            </header>
+            <main class="signup-body">
+                <form action="#" autocomplete="false">
+                    <p>
+                        <label for="name"> First Name</label>
+                    <input type="text" placeholder="Type First Name" id="name"  />
+                    <span id="nameError"></span>
+                    </p>
+                    <p>
+                        <label for="lastname">last  name</label>
+                    <input type="text" placeholder="Type Last Name " id="lastname"  />
+                    <span id="lastError"></span>
+                    </p>
+                    <p>
+                        <label for="email">Email</label>
+                    <input type="email" placeholder="xyz@gmail.com" id="email"/>
+                    <span id="emailError"></span>
+                    </p>
+                    <p>
+                        <label for="phone">Phone no.</label>
+                    <input type="number" placeholder="Enter  10 digit Number" id="phonenumber"  />
+                    <span id="phoneError"></span>
+                    </p>
+                    <p>
+                        <label for="date">Date Of Birth</label>
+                    <input type="date"  id="dob"  />
+                    <span id="dobError"></span>
+                    </p>
+                    <p>
+                        <label for="gender">Genders</label>
+                    <input type="radio" name="gender"  value="male"  >   Male
+                    <input type="radio" name="gender" value="female"  > Female
+                    <br>
+                    <span id="genderError"></span>
+                    </p>
+                    <p>
+                        <label for="password">Password</label>
+                    <input type="text" placeholder="at least 8 characters" id="password" />
+                    <span id="passError"></span>
+                    </p>
+                    <p>
+                        <label for="password">Confirm Password</label>
+                    <input type="text" placeholder="Enter password again" id="confirmpassword" />
+                    <span id="confirmpassError"></span>
+                    </p>
+                    <p>
+                        <input type="submit" value="Create Account" id="submitbtn"/>
+                    </p>
+                </form>
+            </main>
+            <footer class="signup-footer">
+                <p>Already have an account? <a
+                    href="">Login</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
