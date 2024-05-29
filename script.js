@@ -22,7 +22,7 @@ submitBtn.addEventListener('click', (e) => {
         const phonenumber = document.getElementById("phonenumber").value;
         const dob = document.getElementById("dob").value;
         const gender = selectedGender;
-        let finaldata = [{
+        let data ={
             "name" : name,
             "lastname": lastname,
             "email" : email,
@@ -31,11 +31,17 @@ submitBtn.addEventListener('click', (e) => {
             "confirmpassword":confirmpassword,
             "phonenumber": phonenumber,
             "dob": dob
-        }]
-
+        }
+        let alldata = JSON.parse(localStorage.getItem("alldata"))
+        if (!alldata ) {
+            localStorage.setItem("alldata",JSON.stringify([data]));
+        }else{
+            alldata.push(data);
+            localStorage.setItem("alldata",JSON.stringify(alldata));
+        }
         //store data in local storage
-        localStorage.setItem("finaldata",JSON.stringify(finaldata));
-        console.log(JSON.parse(localStorage.getItem("finaldata")));
+        
+        console.log(JSON.parse(localStorage.getItem("alldata")));
         alert("Form Submitted Successfully");
 
 
