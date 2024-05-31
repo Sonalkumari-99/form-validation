@@ -54,7 +54,7 @@ submitbtn.addEventListener('click', (e) => {
         alert("form submitted successfully");
         clearform();
     }
-
+    window.location.href = "success.html";
 });
 
 function validateName() {

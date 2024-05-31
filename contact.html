@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>contact us</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "Xy_a227xD2vbIPjTS",
+            });
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form  id="contactform">
+            <label for="name">first name</label>
+            <input type="text" placeholder="type first name" id="name" required />
+
+            <label for="email">email</label>
+            <input type="email" placeholder="type email" id="email" required />
+
+            <label for="subject">subject</label>
+            <input type="text" placeholder="write some comment..." id="subject" required />
+
+            <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="contact.js"></script>
+</body> -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Contact Us</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("Xy_a227xD2vbIPjTS");
+        })();
+    </script>
+</head>
+<body>
+    <form id="contactform">
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        <textarea id="message" name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <script src="contact.js"></script>
+</body>
+
+</html>
