@@ -32,7 +32,7 @@ submitbtn.addEventListener('click', (e) => {
         console.log("dob :", dob);
         console.log("gender :", gender);
 
-        let finalData = {
+        let data = {
             "name": name,
             "lastname": lastname,
             "email": email,
@@ -41,9 +41,16 @@ submitbtn.addEventListener('click', (e) => {
             "confirmpassword": confirmpassword,
             "phonenumber": phonenumber,
             "dob": dob
-        };
-        localStorage.setItem("finalData", JSON.stringify(finalData));
-        console.log(JSON.parse(localStorage.getItem("finalData")));
+        }
+        let alldata = JSON.parse(localStorage.getItem("alldata"))
+        if (!alldata) {
+            localStorage.setItem("alldata", JSON.stringify([data]));
+        } else {
+            alldata.push(data);
+            localStorage.setItem("alldata", JSON.stringify(alldata));
+        }
+
+        console.log(JSON.parse(localStorage.getItem("allData")));
         alert("form submitted successfully");
         clearform();
     }
@@ -166,5 +173,5 @@ function clearform() {
     dobError.innerHTML = "";
     genderError.innerHTML = "";
     passError.innerHTML = "";
-    confirmpassError.innerHTML="";
+    confirmpassError.innerHTML = "";
 }
