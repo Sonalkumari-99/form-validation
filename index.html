@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form Validation in JavaScript</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <header class="signup-header">
+                <h1>Signup</h1>
+            </header>
+            <main class="signup-body">
+                <form >
+                    <p>
+                        <label for="name">First  Name</label>
+                        <input type="text" placeholder="Type FirstName" id="name"  required/>
+                        <span id="nameError"></span>
+                    </p>
+                    <p>
+                        <label for="surname">Last Name</label>
+                        <input type="text" placeholder="Type LastName " id="Lastname" required/>
+                        <span id="lastnameerror"></span>
+                    </p>
+                    <p>
+                        <label for="date">Date of Birth</label>
+                        <input type="date"  id="dob" required/>
+                        <span id="doberror"></span>
+                    </p>
+                    <p>
+                        <label for="gender">Gender</label>
+                        <input type="radio" name="gender" value="male">Male
+                        <input type="radio" name="gender" value="female">Female
+                        <span id="gendererror"></span>
+                    </p>
+                    <p>
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="xyz@gmail.com" id="email" required/>
+                        <span id="emailError"></span>
+                    </p>
+                    <p>
+                        <label for="phone">Phone no.</label>
+                        <input type="number" placeholder="Enter 10 digit number" id="phonenumber" required/>
+                        <span id="numbererror"></span>
+                    </p>
+                    <p>
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="at least 8 characters" id="password" required/>
+                        <span id="passError"></span>
+                    </p>
+                    <p>
+                        <label for="password">Confirm Password</label>
+                        <input type="password" placeholder="Enter password again" id="confirmpassword" required/>
+                        <span id="confirmpasserror"></span>
+                    </p>
+                    <p>
+                        <a href="success.html"></a><input type="submit" value="Create Account" id="submitBtn" /></a>
+                    </p>
+                    
+                </form>
+            </main>
+            <footer class="signup-footer">
+                <p>Already have an account? <a href="">Login</a><br>
+                    <a href="contact.html">contact us</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
