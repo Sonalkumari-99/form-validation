@@ -16,20 +16,20 @@
                 <h1>Signup</h1>
             </header>
             <main class="signup-body">
-                <form action="#" autocomplete="false">
+                <form >
                     <p>
                         <label for="name">First  Name</label>
-                        <input type="text" placeholder="Type FirstName" id="name" />
+                        <input type="text" placeholder="Type FirstName" id="name"  required/>
                         <span id="nameError"></span>
                     </p>
                     <p>
                         <label for="surname">Last Name</label>
-                        <input type="text" placeholder="Type LastName " id="Lastname" />
+                        <input type="text" placeholder="Type LastName " id="Lastname" required/>
                         <span id="lastnameerror"></span>
                     </p>
                     <p>
                         <label for="date">Date of Birth</label>
-                        <input type="date"  id="dob" />
+                        <input type="date"  id="dob" required/>
                         <span id="doberror"></span>
                     </p>
                     <p>
@@ -40,31 +40,34 @@
                     </p>
                     <p>
                         <label for="email">Email</label>
-                        <input type="email" placeholder="xyz@gmail.com" id="email" />
+                        <input type="email" placeholder="xyz@gmail.com" id="email" required/>
                         <span id="emailError"></span>
                     </p>
                     <p>
                         <label for="phone">Phone no.</label>
-                        <input type="number" placeholder="Enter 10 digit number" id="phonenumber" />
+                        <input type="number" placeholder="Enter 10 digit number" id="phonenumber" required/>
                         <span id="numbererror"></span>
                     </p>
                     <p>
                         <label for="password">Password</label>
-                        <input type="text" placeholder="at least 8 characters" id="password" />
+                        <input type="password" placeholder="at least 8 characters" id="password" required/>
                         <span id="passError"></span>
                     </p>
                     <p>
                         <label for="password">Confirm Password</label>
-                        <input type="text" placeholder="Enter password again" id="confirmpassword" />
+                        <input type="password" placeholder="Enter password again" id="confirmpassword" required/>
                         <span id="confirmpasserror"></span>
                     </p>
                     <p>
-                        <input type="submit" value="Create Account" id="submitBtn" />
+                        <a href="success.html"></a><input type="submit" value="Create Account" id="submitBtn" /></a>
                     </p>
+                    
                 </form>
             </main>
             <footer class="signup-footer">
-                <p>Already have an account? <a href="">Login</a></p>
+                <p>Already have an account? <a href="">Login</a><br>
+                    <a href="contact.html">contact us</a>
+                </p>
             </footer>
         </div>
     </div>

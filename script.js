@@ -22,6 +22,9 @@ submitBtn.addEventListener('click', (e) => {
         const phonenumber = document.getElementById("phonenumber").value;
         const dob = document.getElementById("dob").value;
         const gender = selectedGender;
+
+
+        //store data in local storage
         let data ={
             "name" : name,
             "lastname": lastname,
@@ -32,19 +35,19 @@ submitBtn.addEventListener('click', (e) => {
             "phonenumber": phonenumber,
             "dob": dob
         }
-        let alldata = JSON.parse(localStorage.getItem("alldata"))
+        let alldata = JSON.parse(localStorage.getItem("alldata"));
         if (!alldata ) {
+            // JSON.parse() converts a JSON string into a JavaScript object. 
+            // JSON.stringify() used to convert a JavaScript object(or array)into a JSON string. 
             localStorage.setItem("alldata",JSON.stringify([data]));
         }else{
             alldata.push(data);
             localStorage.setItem("alldata",JSON.stringify(alldata));
         }
-        //store data in local storage
-        
         console.log(JSON.parse(localStorage.getItem("alldata")));
-        alert("Form Submitted Successfully");
-
-
+        
+        
+        
         console.log("Firstname : ", name);
         console.log("Lastname : ", lastname);
         console.log("Date of birth : ", dob);
@@ -53,6 +56,12 @@ submitBtn.addEventListener('click', (e) => {
         console.log("phone number : ", phonenumber);
         console.log("password : ", password);
         console.log("confirm passowrd : ", confirmpassword);
+        
+        alert("Form Submitted Successfully");
+
+        window.location.href = 'success.html';
+        
+
         clearForm();
     }
 });
